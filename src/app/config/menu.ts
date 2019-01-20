@@ -467,7 +467,7 @@ export class MenuConfig implements ConfigModel {
 					},
 					{ section: '商品业务经营管理' },
 					{
-						title: '业务支撑基础',
+						title: '商品信息管理',
 						bullet: 'dot',
 						icon: 'flaticon-business',
 						root: true,
@@ -480,6 +480,10 @@ export class MenuConfig implements ConfigModel {
 								title: '商品档案信息',
 								page: '/ecommerce/products'
 							},
+							{
+								title: '商品销售定价',
+								page: '/ecommerce/products'
+							},							
 						]
 					},
 					{
@@ -501,7 +505,7 @@ export class MenuConfig implements ConfigModel {
 								page: '/ecommerce/products'
 							},
 							{
-								title: '销售客户信息',
+								title: '商务客户信息',
 								page: '/ecommerce/customers'
 							},
 							{
@@ -577,6 +581,10 @@ export class MenuConfig implements ConfigModel {
 								page: '/ecommerce/products'
 							},
 							{
+								title: '经营利润报表',
+								page: '/ecommerce/products'
+							},							
+							{
 								title: '账期库存结转',
 								page: '/ecommerce/products'
 							},
@@ -595,12 +603,10 @@ export class MenuConfig implements ConfigModel {
 							},
 							{
 								title: '运行参数设置',
-								icon: 'flaticon-settings',
 								page: '/profile'
 							},
 							{
 								title: '页面布局设置',
-								icon: 'flaticon-settings',
 								page: '/builder'
 							},
 						]
