@@ -455,16 +455,177 @@ export class MenuConfig implements ConfigModel {
 			aside: {
 				self: {},
 				items: [
+					{ section: '业务数据统计分析' },
 					{
-						title: 'Dashboard',
-						desc: 'Some description goes here',
+						title: '业务数据概要',
+						desc: '信息摘要信息',
 						root: true,
 						icon: 'flaticon-line-graph',
 						page: '/',
-						badge: {type: 'm-badge--danger', value: '2'},
+						badge: { type: 'm-badge--danger', value: '2' },
 						translate: 'MENU.DASHBOARD'
 					},
-					{section: 'Components'},
+					{ section: '商品业务经营管理' },
+					{
+						title: '业务支撑基础',
+						bullet: 'dot',
+						icon: 'flaticon-business',
+						root: true,
+						submenu: [
+							{
+								title: '商品类目信息',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '商品档案信息',
+								page: '/ecommerce/products'
+							},
+						]
+					},
+					{
+						title: '商品业务经营',
+						bullet: 'dot',
+						icon: 'flaticon-business',
+						root: true,
+						submenu: [
+							{
+								title: '供应商信息',
+								page: '/ecommerce/orders'
+							},
+							{
+								title: '商品采购单',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '商品采购退货单',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '销售客户信息',
+								page: '/ecommerce/customers'
+							},
+							{
+								title: '商品订购单',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '商品销售单',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '商品销售退货单',
+								page: '/ecommerce/products'
+							},
+						]
+					},
+					{
+						title: '商品库房管理',
+						bullet: 'dot',
+						icon: 'flaticon-business',
+						root: true,
+						submenu: [
+							{
+								title: '存货仓库信息',
+								page: '/ecommerce/customers'
+							},
+							{
+								title: '商品入库单',
+								page: '/ecommerce/orders'
+							},
+							{
+								title: '商品调拨单',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '商品出库单',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '商品账面库存',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '商品盘点单',
+								page: '/ecommerce/products'
+							},
+						]
+					},
+					{
+						title: '经营账务管理',
+						bullet: 'dot',
+						icon: 'flaticon-business',
+						root: true,
+						submenu: [
+							{
+								title: '经营账期管理',
+								page: '/ecommerce/products'
+							},							
+							{
+								title: '盘点损溢调账单',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '进销存报表',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '进销差价报表',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '经营成本核算表',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '账期库存结转',
+								page: '/ecommerce/products'
+							},
+						]
+					},
+					{ section: '系统运行支撑基础' },
+					{
+						title: '应用基础配置',
+						root: true,
+						bullet: 'dot',
+						icon: 'flaticon-interface-1',
+						submenu: [
+							{
+								title: '业务数据定义',
+								page: '/ecommerce/products'
+							},
+							{
+								title: '运行参数设置',
+								icon: 'flaticon-settings',
+								page: '/profile'
+							},
+							{
+								title: '页面布局设置',
+								icon: 'flaticon-settings',
+								page: '/builder'
+							},
+						]
+					},
+					{
+						title: '账号权限授权',
+						root: true,
+						bullet: 'dot',
+						icon: 'flaticon-interface-1',
+						submenu: [
+							{
+								title: '用户账号管理',
+								page: '/profile'
+							},
+							{
+								title: '用户角色管理',
+								page: '/profile'
+							},
+							{
+								title: '角色权限管理',
+								page: '/profile'
+							},
+						]
+					},
+					{ section: '开发组件参考' },
 					{
 						title: 'Google Material',
 						root: true,
@@ -747,93 +908,6 @@ export class MenuConfig implements ConfigModel {
 								page: '/metronic/forms'
 							}
 						]
-					},
-					{section: 'Applications'},
-					{
-						title: 'eCommerce',
-						bullet: 'dot',
-						icon: 'flaticon-business',
-						root: true,
-						submenu: [
-							{
-								title: 'Customers',
-								page: '/ecommerce/customers'
-							},
-							{
-								title: 'Orders',
-								page: '/ecommerce/orders'
-							},
-							{
-								title: 'Products',
-								page: '/ecommerce/products'
-							},
-						]
-					},
-					// {
-					// 	title: 'User Management',
-					// 	root: true,
-					// 	bullet: 'dot',
-					// 	icon: 'flaticon-user',
-					// 	page: '/user-management'
-					// },
-					// {
-					// 	title: 'Audit Log',
-					// 	root: true,
-					// 	bullet: 'dot',
-					// 	icon: 'flaticon-interface-5',
-					// 	page: '/audit-log'
-					// },
-					{section: 'Pages'},
-					{
-						title: 'User',
-						root: true,
-						bullet: 'dot',
-						icon: 'flaticon-interface-1',
-						submenu: [
-							{
-								title: 'Profile',
-								page: '/profile'
-							},
-						]
-					},
-					{
-						title: 'Error',
-						root: true,
-						bullet: 'dot',
-						icon: 'flaticon-interface-2',
-						submenu: [
-							{
-								title: 'Error-1',
-								page: '/error/1'
-							},
-							{
-								title: 'Error-2',
-								page: '/error/2'
-							},
-							{
-								title: 'Error-3',
-								page: '/error/3'
-							},
-							{
-								title: 'Error-4',
-								page: '/error/4'
-							},
-							{
-								title: 'Error-5',
-								page: '/error/5'
-							},
-							{
-								title: 'Error-6',
-								page: '/error/6'
-							},
-						]
-					},
-					{section: 'Tools'},
-					{
-						title: 'Layout Builder',
-						root: true,
-						icon: 'flaticon-settings',
-						page: '/builder'
 					}
 				]
 			}

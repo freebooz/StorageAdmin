@@ -3,12 +3,12 @@
 	<ng-container mPortletHeadTitle>
 		<div class="m-portlet__head-title">
 			<h3 class="m-portlet__head-text">
-				Products list
+				商品列表
 			</h3>
 		</div>
 	</ng-container>
 	<ng-container mPortletHeadTools>
-		<a [routerLink]="['/ecommerce/products/add']" mat-raised-button color="primary" matTooltip="Create new product">New product</a>
+		<a [routerLink]="['/ecommerce/products/add']" mat-raised-button color="primary" matTooltip="新增一个商品">新增</a>
 	</ng-container>
 	<!-- end::Header -->
 	
@@ -24,12 +24,12 @@
 						<div class="m-form__control">
 							<mat-form-field>
 								<mat-select [(value)]="filterStatus" (selectionChange)="loadProductsList()" class="mat-form-field mat-form-field-fluid">
-									<mat-option value="">All</mat-option>
-									<mat-option value="0">Selling</mat-option>
-									<mat-option value="1">Sold</mat-option>
+									<mat-option value="">全部</mat-option>
+									<mat-option value="0">有货</mat-option>
+									<mat-option value="1">卖光</mat-option>
 								</mat-select>
 								<mat-hint align="start">
-									<strong>Filter by Status</strong>
+									<strong>按状态过滤</strong>
 								</mat-hint>
 							</mat-form-field>
 						</div>
@@ -40,12 +40,12 @@
 						<div class="m-form__control">
 							<mat-form-field>
 								<mat-select [(value)]="filterCondition" (selectionChange)="loadProductsList()" class="mat-form-field mat-form-field-fluid">
-									<mat-option value="">All</mat-option>
-									<mat-option value="0">New</mat-option>
+									<mat-option value="">全部</mat-option>
+									<mat-option value="0">新到</mat-option>
 									<mat-option value="1">Used</mat-option>
 								</mat-select>
 								<mat-hint align="start">
-									<strong>Filter by Contidion</strong>
+									<strong>按条件过滤</strong>
 								</mat-hint>
 							</mat-form-field>
 						</div>
@@ -54,9 +54,9 @@
 					</div>
 					<div class="col-md-4 m--margin-bottom-10-mobile">
 						<mat-form-field>
-							<input matInput placeholder="Search product" #searchInput placeholder="Search" class="mat-form-field mat-form-field-fluid">
+							<input matInput placeholder="搜索商品" #searchInput placeholder="搜索" class="mat-form-field mat-form-field-fluid">
 							<mat-hint align="start">
-								<strong>Search in all fields</strong>
+								<strong>搜索所有字段</strong>
 							</mat-hint>
 						</mat-form-field>
 					</div>
@@ -75,7 +75,7 @@
 						</div>
 						<div class="m-form__control m-form__group--inline">
 							<button mat-raised-button color="accent" (click)="deleteProducts()" matTooltip="Delete selected products">
-								<mat-icon>delete</mat-icon> Delete All
+								<mat-icon>delete</mat-icon> 删除所有
 							</button>&nbsp;<!-- Call 'delete-entity-dialog' from _shared folder -->
 							<button mat-raised-button (click)="fetchProducts()" matTooltip="Fetch selected products">
 								<mat-icon>clear_all</mat-icon> Fetch Selected Records
@@ -111,37 +111,37 @@
 				</ng-container>
 
 				<ng-container matColumnDef="VINCode">
-					<mat-header-cell *matHeaderCellDef mat-sort-header class="mat-column-vinCode">VIN Code (ID)</mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header class="mat-column-vinCode">商品条码</mat-header-cell>
 					<mat-cell *matCellDef="let product" class="mat-column-vinCode">{{product.VINCode}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="manufacture">
-					<mat-header-cell *matHeaderCellDef mat-sort-header>Manufacture</mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header>商品名称</mat-header-cell>
 					<mat-cell *matCellDef="let product">{{product.manufacture}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="model">
-					<mat-header-cell *matHeaderCellDef mat-sort-header>Model</mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header>规格</mat-header-cell>
 					<mat-cell *matCellDef="let product">{{product.model}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="modelYear">
-					<mat-header-cell *matHeaderCellDef mat-sort-header>Model Year</mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header>型号</mat-header-cell>
 					<mat-cell *matCellDef="let product">{{product.modelYear}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="color">
-					<mat-header-cell *matHeaderCellDef mat-sort-header>Color</mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header>单位</mat-header-cell>
 					<mat-cell *matCellDef="let product" [ngStyle]="{ 'color' : product.color }">{{product.color}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="price">
-					<mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header>单价</mat-header-cell>
 					<mat-cell *matCellDef="let product">${{product.price}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="status">
-					<mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header>状态</mat-header-cell>
 					<mat-cell *matCellDef="let product">
 						<span class="m-badge m-badge--{{ getItemCssClassByStatus(product.status) }} m-badge--wide">{{ getItemStatusString(product.status) }}</span>
 					</mat-cell>
@@ -157,7 +157,7 @@
 
 				<ng-container matColumnDef="actions">
 					<mat-header-cell *matHeaderCellDef>
-						Actions
+						操作
 					</mat-header-cell>
 					<mat-cell *matCellDef="let product">
 						<a [routerLink]="['/ecommerce/products/edit']" [queryParams]="{id: product.id}" mat-icon-button color="primary" matTooltip="Edit product">
@@ -192,7 +192,7 @@
 		<!-- start: BOTTOM -->
 		<div class="mat-table__bottom">
 			<mat-spinner [diameter]="20" *ngIf="dataSource.loading$ | async"></mat-spinner>
-			<mat-paginator [pageSize]="10" [pageSizeOptions]="[3, 5, 10]" [length]="dataSource.paginatorTotal$ | async" [showFirstLastButtons]="true"></mat-paginator>
+			<mat-paginator [pageSize]="10" [pageSizeOptions]="[10,25,50,100]" [length]="dataSource.paginatorTotal$ | async" [showFirstLastButtons]="true"></mat-paginator>
 		</div>
 		<!-- end: BOTTOM -->
 	</ng-container>
