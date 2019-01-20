@@ -7,9 +7,8 @@ import { ProductModel } from '../models/product.model';
 import { QueryParamsModel } from '../models/query-models/query-params.model';
 import { QueryResultsModel } from '../models/query-models/query-results.model';
 
-const API_PRODUCTS_URL = 'api/products';
-// Fake REST API (Mock)
-// This method emulates server calls
+const API_PRODUCTS_URL = 'http://127.0.0.1:3000/product/list';
+
 @Injectable()
 export class ProductsService {
 	lastFilter$: BehaviorSubject<QueryParamsModel> = new BehaviorSubject(new QueryParamsModel({}, 'asc', '', 0, 10));
@@ -18,9 +17,29 @@ export class ProductsService {
 		private httpUtils: HttpUtilsService) { }
 
 	// CREATE =>  POST: add a new product to the server
-	createProduct(product): Observable<ProductModel> {
+	createProduct(product): any {
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
-		return this.http.post<ProductModel>(API_PRODUCTS_URL, product, { headers: httpHeaders });
+
+		this.http.post(API_PRODUCTS_URL, { headers: httpHeaders }, product).subscribe(
+			res => {
+				console.log("sucess" + res);
+			},
+			err => {
+				console.log(err);
+			});
+
+		console.log("++++++++++++++++++++++++++++++++++++");
+		this.http.get<any>(API_PRODUCTS_URL, { headers: httpHeaders }).subscribe(
+			res => {
+				console.log("sucess" + res);
+			},
+			err => {
+				console.log(err);
+			});
+
+		console.log("------------------------------------------");
+		// return this.http.post<ProductModel>(API_PRODUCTS_URL, product, { headers: httpHeaders });
+		// return product;
 	}
 
 	// READ

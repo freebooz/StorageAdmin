@@ -7,7 +7,7 @@ import { ProductModel } from '../models/product.model';
 import { QueryParamsModel } from '../models/query-models/query-params.model';
 import { QueryResultsModel } from '../models/query-models/query-results.model';
 
-const API_PRODUCTS_URL = 'api/products';
+const API_PRODUCTS_URL = '127.0.0.1:3000/product/edit';
 // Real REST API
 @Injectable()
 export class ProductsService {
@@ -18,6 +18,7 @@ export class ProductsService {
 
 	// CREATE =>  POST: add a new product to the server
 	createProduct(product): Observable<ProductModel> {
+		console.log("debug........");
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 		return this.http.post<ProductModel>(API_PRODUCTS_URL, product, { headers: httpHeaders });
 	}

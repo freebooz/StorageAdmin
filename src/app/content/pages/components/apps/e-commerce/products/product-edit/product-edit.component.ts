@@ -216,14 +216,15 @@ export class ProductEditComponent implements OnInit {
 	addProduct(_product: ProductModel, withBack: boolean = false) {
 		this.loadingSubject.next(true);
 		this.productsService.createProduct(_product).subscribe(res => {
-			this.loadingSubject.next(false);
-			if (withBack) {
-				this.goBack(res.id);
-			} else {
-				const message = `New product successfully has been added.`;
-				this.layoutUtilsService.showActionNotification(message, MessageType.Create, 10000, true, false);
-				this.refreshProduct(res.id);
-			}
+			// this.loadingSubject.next(false);
+			// if (withBack) {
+			// 	this.goBack(res.id);
+			// } else {
+			// 	const message = `New product successfully has been added.`;
+			// 	this.layoutUtilsService.showActionNotification(message, MessageType.Create, 10000, true, false);
+			// 	this.refreshProduct(res.id);
+			// }
+			console.log(res);
 		});
 	}
 
