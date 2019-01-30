@@ -7,7 +7,7 @@ import { ProductModel } from '../models/product.model';
 import { QueryParamsModel } from '../models/query-models/query-params.model';
 import { QueryResultsModel } from '../models/query-models/query-results.model';
 
-const API_PRODUCTS_URL = 'http://127.0.0.1:3000/product/list';
+const API_PRODUCTS_URL = 'http://119.28.180.72:3000/product/list';
 
 @Injectable()
 export class ProductsService {
@@ -20,20 +20,13 @@ export class ProductsService {
 	createProduct(product): any {
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 
-		this.http.post(API_PRODUCTS_URL, { headers: httpHeaders }, product).subscribe(
+		this.http.get(API_PRODUCTS_URL).subscribe(
 			res => {
-				console.log("sucess" + res);
+				alert(res['data']);
+				console.log(res);
 			},
 			err => {
-				console.log(err);
-			});
-
-		console.log("++++++++++++++++++++++++++++++++++++");
-		this.http.get<any>(API_PRODUCTS_URL, { headers: httpHeaders }).subscribe(
-			res => {
-				console.log("sucess" + res);
-			},
-			err => {
+				alert("error!");
 				console.log(err);
 			});
 
