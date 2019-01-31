@@ -205,9 +205,9 @@ export class ProductsListComponent implements OnInit {
 		let messages = [];
 		this.selection.selected.forEach(elem => {
 			messages.push({
-				text: `${elem.manufacture} ${elem.model} ${elem.modelYear}`,
-				id: elem.VINCode,
-				status: elem.status
+				// text: `${elem.manufacture} ${elem.model} ${elem.modelYear}`,
+				// id: elem.VINCode,
+				// status: elem.status
 			});
 		});
 		this.layoutUtilsService.fetchElements(messages);
@@ -222,11 +222,11 @@ export class ProductsListComponent implements OnInit {
 
 		this.selection.selected.forEach(elem => {
 			_messages.push({
-				text: `${elem.manufacture} ${elem.model} ${elem.modelYear}`,
-				id: elem.VINCode,
-				status: elem.status,
-				statusTitle: this.getItemStatusString(elem.status),
-				statusCssClass: this.getItemCssClassByStatus(elem.status)
+				// text: `${elem.manufacture} ${elem.model} ${elem.modelYear}`,
+				// id: elem.VINCode,
+				// status: elem.status,
+				// statusTitle: this.getItemStatusString(elem.status),
+				// statusCssClass: this.getItemCssClassByStatus(elem.status)
 			});
 		});
 

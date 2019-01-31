@@ -22,6 +22,8 @@ export class ProductsDataSource extends BaseDataSource {
 				}),
 				catchError(err => of(new QueryResultsModel([], err))),
 				finalize(() => this.loadingSubject.next(false))
-			).subscribe();
+			).subscribe((data)=>{
+				alert(data);}
+			);
 	}
 }
