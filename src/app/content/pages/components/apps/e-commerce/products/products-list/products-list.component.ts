@@ -77,7 +77,7 @@ export class ProductsListComponent implements OnInit {
 			.subscribe();
 
 		// Set title to page breadCrumbs
-		this.subheaderService.setTitle('Products');
+		this.subheaderService.setTitle('商品信息');
 		// Init DataSource
 		this.dataSource = new ProductsDataSource(this.productsService);
 		let queryParams = new QueryParamsModel({});
@@ -102,6 +102,7 @@ export class ProductsListComponent implements OnInit {
 			this.paginator.pageIndex,
 			this.paginator.pageSize
 		);
+		alert('请求数据');
 		this.dataSource.loadProducts(queryParams);
 	}
 
