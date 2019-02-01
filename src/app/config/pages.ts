@@ -95,13 +95,13 @@ export class PagesConfig implements ConfigModel {
 				// navigation
 				navigation: {
 					menu: {
-						page: { title: 'Menu', desc: '' }
+						page: { title: '菜单', desc: '' }
 					},
 					sidenav: {
-						page: { title: 'Sidenav', desc: '' }
+						page: { title: '侧边栏', desc: '' }
 					},
 					toolbar: {
-						page: { title: 'Toolbar', desc: '' }
+						page: { title: '工具栏', desc: '' }
 					}
 				},
 				// layout
