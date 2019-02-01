@@ -98,16 +98,16 @@ export class ProductEditComponent implements OnInit {
 
 	createForm() {
 		this.productForm = this.productFB.group({
-			model: [this.product.model, Validators.required],
-			manufacture: [this.product.manufacture, Validators.required],
-			modelYear: [this.product.modelYear.toString(), Validators.required],
-			mileage: [this.product.mileage, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-			description: [this.product.description],
-			color: [this.product.color, Validators.required],
-			price: [this.product.price, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-			condition: [this.product.condition.toString(), [Validators.required, Validators.min(0), Validators.max(1)]],
-			status: [this.product.status.toString(), [Validators.required, Validators.min(0), Validators.max(1)]],
-			VINCode: [this.product.VINCode, Validators.required]
+			// model: [this.product.model, Validators.required],
+			// manufacture: [this.product.manufacture, Validators.required],
+			// modelYear: [this.product.modelYear.toString(), Validators.required],
+			// mileage: [this.product.mileage, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+			// description: [this.product.description],
+			// color: [this.product.color, Validators.required],
+			// price: [this.product.price, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+			// condition: [this.product.condition.toString(), [Validators.required, Validators.min(0), Validators.max(1)]],
+			// status: [this.product.status.toString(), [Validators.required, Validators.min(0), Validators.max(1)]],
+			// VINCode: [this.product.VINCode, Validators.required]
 		});
 
 		this.filteredManufactures = this.productForm.controls.manufacture.valueChanges
@@ -190,17 +190,17 @@ export class ProductEditComponent implements OnInit {
 	prepareProduct(): ProductModel {
 		const controls = this.productForm.controls;
 		const _product = new ProductModel();
-		_product.id = this.product.id;
-		_product.model = controls['model'].value;
-		_product.manufacture = controls['manufacture'].value;
-		_product.modelYear = +controls['modelYear'].value;
-		_product.mileage = +controls['mileage'].value;
-		_product.description = controls['description'].value;
-		_product.color = controls['color'].value;
-		_product.price = +controls['price'].value;
-		_product.condition = +controls['condition'].value;
-		_product.status = +controls['status'].value;
-		_product.VINCode = controls['VINCode'].value;
+		// _product.id = this.product.id;
+		// _product.model = controls['model'].value;
+		// _product.manufacture = controls['manufacture'].value;
+		// _product.modelYear = +controls['modelYear'].value;
+		// _product.mileage = +controls['mileage'].value;
+		// _product.description = controls['description'].value;
+		// _product.color = controls['color'].value;
+		// _product.price = +controls['price'].value;
+		// _product.condition = +controls['condition'].value;
+		// _product.status = +controls['status'].value;
+		// _product.VINCode = controls['VINCode'].value;
 		_product._userId = 1; // TODO: get version from userId
 		_product._createdDate = this.product._createdDate;
 		_product._updatedDate = this.product._updatedDate;
@@ -269,12 +269,21 @@ export class ProductEditComponent implements OnInit {
 	}
 
 	getComponentTitle() {
+<<<<<<< HEAD
 		let result = '新增商品';
 		if (!this.product || !this.product.id) {
 			return result;
 		}
 
 		result = `编辑商品 - ${this.product.manufacture} ${this.product.model}, ${this.product.modelYear}`;
+=======
+		let result = 'Create product';
+		// if (!this.product || !this.product.id) {
+		// 	return result;
+		// }
+
+		// result = `Edit product - ${this.product.manufacture} ${this.product.model}, ${this.product.modelYear}`;
+>>>>>>> bec4a2b077d3545b9f0d7dc66f4fa1c5ead4dd48
 		return result;
 	}
 

@@ -67,7 +67,7 @@ export class ProductsService {
 		const tasks$ = [];
 		for (let i = 0; i < products.length; i++) {
 			const _product = products[i];
-			_product.status = status;
+			// _product.status = status;
 			tasks$.push(this.updateProduct(_product));
 		}
 		return forkJoin(tasks$);

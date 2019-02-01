@@ -4,30 +4,30 @@ import { ProductRemarkModel } from './product-remark.model';
 
 export class ProductModel extends BaseModel {
 	id: number;
-	model: string;
-	manufacture: string;
-	modelYear: number;
-	mileage: number;
-	description: string;
-	color: string;
-	price: number;
-	condition: number;
-	status: number;
-	VINCode: string;
+	categcode: string;
+	barcode: string;
+	name: string;
+	speci: string;
+	band: string;
+	origin: string;
+	unit_pack: string;
+	unit_stand: string;
+	unitrate: number;
+	isenable: number;
 
 	_specs: ProductSpecificationModel[];
 	_remarks: ProductRemarkModel[];
 
 	clear() {
-		this.model = '';
-		this.manufacture = '';
-		this.modelYear = 2000;
-		this.mileage = 0;
-		this.description = '';
-		this.color = 'Black';
-		this.price = 1000;
-		this.condition = 0;
-		this.status = 0;
-		this.VINCode = '';
+		this.categcode = '';
+		this.barcode = '';
+		this.name = '';
+		this.speci = '';
+		this.origin = '';
+		this.unit_pack = '';
+		this.unit_stand = '';
+		this.unitrate = 1;
+		this.isenable = 0;
+		this.band = '';
 	}
 }
