@@ -17,9 +17,9 @@
 				<mat-icon>more_vert</mat-icon>
 			</button>
 			<mat-menu #menu="matMenu">
-				<button mat-menu-item color="primary" (click)="onSumbit(true)">保存 & 退出</button>
-				<button mat-menu-item color="primary">保存 & 复制</button>
-				<button mat-menu-item color="primary" (click)="onSumbit(false)">保存 & 继续</button>
+				<button mat-menu-item color="primary" (click)="onSumbit(true)">保存并退出</button>
+				<button mat-menu-item color="primary">保存并复制</button>
+				<button mat-menu-item color="primary" (click)="onSumbit(false)">保存并继续</button>
 			</mat-menu>
 		</div>
 	</ng-container>
@@ -29,24 +29,21 @@
 				<ng-template matTabContent>
 					<!--begin::Form-->
 					<form [formGroup]="productForm" class="m-form m-form--group-seperator-dashed">
-
 						<m-alert *ngIf="hasFormErrors" type="warn" [showCloseButton]="true" [duration]="10000" (close)="onAlertClose($event)">
 							Oh snap! Change a few things up and try submitting again.
 						</m-alert>
-
 						<div class="m-form__section m-form__section--first">
 							<div class="m-form__group">
 								<div class="row">
-
 									<div class="col-md-4 m--margin-bottom-10-mobile">
 										<mat-form-field class="mat-form-field-fluid">
-											<input matInput placeholder="Enter Model" formControlName="model">
+											<input matInput placeholder="输入品名" formControlName="model">
 											<mat-error>
 												Model is
 												<strong>required</strong>
 											</mat-error>
-											<mat-hint align="start">Please enter
-												<strong>Model</strong>
+											<mat-hint align="start">请输入
+												<strong>品名</strong>
 											</mat-hint>
 										</mat-form-field>
 									</div>
