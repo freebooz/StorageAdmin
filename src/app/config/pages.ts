@@ -206,10 +206,10 @@ export class PagesConfig implements ConfigModel {
 				},
 				products: {
 					edit: {
-						page: { title: 'Edit product', desc: '' }
+						page: { title: '修改商品', desc: '' }
 					},
 					add: {
-						page: { title: 'Create product', desc: '' }
+						page: { title: '新增商品', desc: '' }
 					}
 				},
 				orders: {
@@ -231,7 +231,7 @@ export class PagesConfig implements ConfigModel {
 				}
 			},
 			profile: {
-				page: { title: 'User Profile', desc: '' }
+				page: { title: '用户档案', desc: '' }
 			},
 			404: {
 				page: { title: '404 Not Found', desc: '', subheader: false }
