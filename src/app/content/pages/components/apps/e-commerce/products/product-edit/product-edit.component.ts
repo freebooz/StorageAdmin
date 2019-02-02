@@ -269,21 +269,12 @@ export class ProductEditComponent implements OnInit {
 	}
 
 	getComponentTitle() {
-<<<<<<< HEAD
 		let result = '新增商品';
 		if (!this.product || !this.product.id) {
 			return result;
 		}
 
 		result = `编辑商品 - ${this.product.manufacture} ${this.product.model}, ${this.product.modelYear}`;
-=======
-		let result = 'Create product';
-		// if (!this.product || !this.product.id) {
-		// 	return result;
-		// }
-
-		// result = `Edit product - ${this.product.manufacture} ${this.product.model}, ${this.product.modelYear}`;
->>>>>>> bec4a2b077d3545b9f0d7dc66f4fa1c5ead4dd48
 		return result;
 	}
 
