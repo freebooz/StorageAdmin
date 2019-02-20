@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, forkJoin, from, of, BehaviorSubject } from 'rxjs';
-import { map, startWith} from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import { ProductsService } from '../../_core/services/index';
 import { SpecificationsService } from '../../_core/services/specification.service';
 import { ProductRemarksService } from '../../_core/services/index';
@@ -83,7 +83,7 @@ export class ProductEditComponent implements OnInit {
 		if (!this.product.id) {
 			this.subheaderService.setBreadcrumbs([
 				{ title: 'eCommerce', page: '/ecommerce' },
-				{ title: 'Products',  page: '/ecommerce/products' },
+				{ title: 'Products', page: '/ecommerce/products' },
 				{ title: 'Create product', page: '/ecommerce/products/add' }
 			]);
 			return;
@@ -91,7 +91,7 @@ export class ProductEditComponent implements OnInit {
 		this.subheaderService.setTitle('Edit product');
 		this.subheaderService.setBreadcrumbs([
 			{ title: 'eCommerce', page: '/ecommerce' },
-			{ title: 'Products',  page: '/ecommerce/products' },
+			{ title: 'Products', page: '/ecommerce/products' },
 			{ title: 'Edit product', page: '/ecommerce/products/edit', queryParams: { id: this.product.id } }
 		]);
 	}
@@ -119,7 +119,7 @@ export class ProductEditComponent implements OnInit {
 			.pipe(
 				startWith(''),
 				map(val => this.filterColor(val.toString()))
-		);
+			);
 
 		this.specificationsService.getSpecs().subscribe(res => {
 			this.availableSpecificationTypes = res;
@@ -159,8 +159,8 @@ export class ProductEditComponent implements OnInit {
 		this.createForm();
 		this.hasFormErrors = false;
 		this.productForm.markAsPristine();
-        this.productForm.markAsUntouched();
-        this.productForm.updateValueAndValidity();
+		this.productForm.markAsUntouched();
+		this.productForm.updateValueAndValidity();
 	}
 
 	onSumbit(withBack: boolean = false) {
@@ -239,10 +239,10 @@ export class ProductEditComponent implements OnInit {
 			tasks$.push(this.remarksService.createRemark(element));
 		});
 		this.remarksListState.deletedItems.forEach(element => {
-				tasks$.push(this.remarksService.deleteRemark(element));
+			tasks$.push(this.remarksService.deleteRemark(element));
 		});
 		this.remarksListState.updatedItems.forEach(element => {
-				tasks$.push(this.remarksService.updateRemark(element));
+			tasks$.push(this.remarksService.updateRemark(element));
 		});
 
 		// Update Specs
