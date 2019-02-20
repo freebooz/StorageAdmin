@@ -206,10 +206,10 @@ export class PagesConfig implements ConfigModel {
 				},
 				products: {
 					edit: {
-						page: { title: 'Edit product', desc: '' }
+						page: { title: '修改商品', desc: '' }
 					},
 					add: {
-						page: { title: 'Create product', desc: '' }
+						page: { title: '新增商品', desc: '' }
 					}
 				},
 				orders: {

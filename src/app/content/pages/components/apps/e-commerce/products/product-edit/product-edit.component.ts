@@ -84,7 +84,7 @@ export class ProductEditComponent implements OnInit {
 			this.subheaderService.setBreadcrumbs([
 				{ title: 'eCommerce', page: '/ecommerce' },
 				{ title: 'Products', page: '/ecommerce/products' },
-				{ title: 'Create product', page: '/ecommerce/products/add' }
+				{ title: '新增商品信息', page: '/ecommerce/products/add' }
 			]);
 			return;
 		}
@@ -269,7 +269,7 @@ export class ProductEditComponent implements OnInit {
 	}
 
 	getComponentTitle() {
-		let result = 'Create product';
+		let result = '商品信息';
 		// if (!this.product || !this.product.id) {
 		// 	return result;
 		// }

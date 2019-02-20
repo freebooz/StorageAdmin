@@ -9,10 +9,12 @@
 	</ng-container>
 	<ng-container mPortletHeadTools>
 		<button type="button" (click)="goBack()" mat-raised-button matTooltip="返回商品列表">返回</button>&nbsp;
-		<button mat-raised-button (click)="reset()" [disabled]="selectedTab !== 0" matTooltip="Reset changes">重置</button>&nbsp;
+		<button mat-raised-button (click)="reset()" [disabled]="selectedTab !== 0"
+			matTooltip="Reset changes">重置</button>&nbsp;
 
 		<div class="m-buttons--wrapper">
-			<button type="button" (click)="onSumbit(false)" mat-raised-button color="primary" matTooltip="保存 & 继续">保存</button>
+			<button type="button" (click)="onSumbit(false)" mat-raised-button color="primary"
+				matTooltip="保存 & 继续">保存</button>
 			<button mat-icon-button [matMenuTriggerFor]="menu" color="primary">
 				<mat-icon>more_vert</mat-icon>
 			</button>
@@ -30,31 +32,32 @@
 					<!--begin::Form-->
 					<form [formGroup]="productForm" class="m-form m-form--group-seperator-dashed">
 
-						<m-alert *ngIf="hasFormErrors" type="warn" [showCloseButton]="true" [duration]="10000" (close)="onAlertClose($event)">
+						<m-alert *ngIf="hasFormErrors" type="warn" [showCloseButton]="true" [duration]="10000"
+							(close)="onAlertClose($event)">
 							Oh snap! Change a few things up and try submitting again.
 						</m-alert>
 
 						<div class="m-form__section m-form__section--first">
 							<div class="m-form__group">
 								<div class="row">
-
 									<div class="col-md-4 m--margin-bottom-10-mobile">
 										<mat-form-field class="mat-form-field-fluid">
-											<input matInput placeholder="Enter Model" formControlName="model">
+											<input matInput placeholder="商品名称" formControlName="name">
 											<mat-error>
-												Model is
-												<strong>required</strong>
+												必须输入商品名称
+												<strong>商品名称</strong>
 											</mat-error>
-											<mat-hint align="start">Please enter
-												<strong>Model</strong>
+											<mat-hint align="start">请输入商品名称
 											</mat-hint>
 										</mat-form-field>
 									</div>
 									<div class="col-md-4 m--margin-bottom-10-mobile">
 										<mat-form-field class="mat-form-field-fluid">
-											<input matInput placeholder="Enter Manufacture" formControlName="manufacture" [matAutocomplete]="manuf">
+											<input matInput placeholder="Enter Manufacture"
+												formControlName="manufacture" [matAutocomplete]="manuf">
 											<mat-autocomplete #manuf="matAutocomplete">
-												<mat-option *ngFor="let manufacture of filteredManufactures | async" [value]="manufacture">
+												<mat-option *ngFor="let manufacture of filteredManufactures | async"
+													[value]="manufacture">
 													{{ manufacture }}
 												</mat-option>
 											</mat-autocomplete>
@@ -70,7 +73,8 @@
 									<div class="col-md-4 m--margin-bottom-10-mobile">
 										<mat-form-field class="mat-form-field-fluid">
 											<mat-select placeholder="Enter Model year" formControlName="modelYear">
-												<mat-option value="{{year}}" *ngFor="let year of availableYears;">{{year}}</mat-option>
+												<mat-option value="{{year}}" *ngFor="let year of availableYears;">
+													{{year}}</mat-option>
 											</mat-select>
 											<mat-error>
 												Model year
@@ -100,7 +104,8 @@
 									</div>
 									<div class="col-md-4 m--margin-bottom-10-mobile">
 										<mat-form-field class="mat-form-field-fluid">
-											<input matInput placeholder="Enter Color" formControlName="color" [matAutocomplete]="col">
+											<input matInput placeholder="Enter Color" formControlName="color"
+												[matAutocomplete]="col">
 											<mat-autocomplete #col="matAutocomplete">
 												<mat-option *ngFor="let col of filteredColors | async" [value]="col">
 													{{ col }}
@@ -149,15 +154,19 @@
 									<div class="col-md-4 m--margin-bottom-10-mobile">
 										<div>Condition:</div>
 										<mat-radio-group formControlName="condition" class="example-radio-group">
-											<mat-radio-button class="example-radio-button" value="0">New</mat-radio-button>
-											<mat-radio-button class="example-radio-button" value="1">Used</mat-radio-button>
+											<mat-radio-button class="example-radio-button" value="0">New
+											</mat-radio-button>
+											<mat-radio-button class="example-radio-button" value="1">Used
+											</mat-radio-button>
 										</mat-radio-group>
 									</div>
 									<div class="col-md-4">
 										<div>Status:</div>
 										<mat-radio-group formControlName="status" class="example-radio-group">
-											<mat-radio-button class="example-radio-button" value="0">Selling</mat-radio-button>
-											<mat-radio-button class="example-radio-button" value="1">Sold</mat-radio-button>
+											<mat-radio-button class="example-radio-button" value="0">Selling
+											</mat-radio-button>
+											<mat-radio-button class="example-radio-button" value="1">Sold
+											</mat-radio-button>
 										</mat-radio-group>
 									</div>
 								</div>
@@ -167,7 +176,8 @@
 								<div class="row">
 									<div class="col-md-12 m--margin-bottom-10-mobile">
 										<mat-form-field class="mat-form-field-fluid">
-											<textarea matInput rows="7" placeholder="Enter Description" formControlName="description"></textarea>
+											<textarea matInput rows="7" placeholder="Enter Description"
+												formControlName="description"></textarea>
 										</mat-form-field>
 									</div>
 								</div>
@@ -179,12 +189,14 @@
 			</mat-tab>
 			<mat-tab label="商品规格" [disabled]="!product.id">
 				<ng-template matTabContent>
-					<m-specifications-list [specsListState]="specsListState" [(loadingSubject)]="loadingSubject"></m-specifications-list>
+					<m-specifications-list [specsListState]="specsListState" [(loadingSubject)]="loadingSubject">
+					</m-specifications-list>
 				</ng-template>
 			</mat-tab>
 			<mat-tab label="商品评论" [disabled]="!product.id">
 				<ng-template matTabContent>
-					<m-remarks-list [remarksListState]="remarksListState" [(loadingSubject)]="loadingSubject"></m-remarks-list>
+					<m-remarks-list [remarksListState]="remarksListState" [(loadingSubject)]="loadingSubject">
+					</m-remarks-list>
 				</ng-template>
 			</mat-tab>
 		</mat-tab-group>
