@@ -9,7 +9,7 @@ export class AuthFakeDb {
 			refreshToken: 'access-token-' + Math.random(),
 			roles: ['ADMIN'],
 			pic: './assets/app/media/img/users/user4.jpg',
-			fullname: 'Mark Andre'
+			fullname: '系统管理员'
 		},
 		{
 			id: 2,

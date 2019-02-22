@@ -95,13 +95,13 @@ export class PagesConfig implements ConfigModel {
 				// navigation
 				navigation: {
 					menu: {
-						page: { title: 'Menu', desc: '' }
+						page: { title: '菜单', desc: '' }
 					},
 					sidenav: {
-						page: { title: 'Sidenav', desc: '' }
+						page: { title: '侧边栏', desc: '' }
 					},
 					toolbar: {
-						page: { title: 'Toolbar', desc: '' }
+						page: { title: '工具栏', desc: '' }
 					}
 				},
 				// layout
@@ -231,7 +231,7 @@ export class PagesConfig implements ConfigModel {
 				}
 			},
 			profile: {
-				page: { title: 'User Profile', desc: '' }
+				page: { title: '用户档案', desc: '' }
 			},
 			404: {
 				page: { title: '404 Not Found', desc: '', subheader: false }
