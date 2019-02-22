@@ -31,13 +31,7 @@
 				<ng-template matTabContent>
 					<!--begin::Form-->
 					<form [formGroup]="productForm" class="m-form m-form--group-seperator-dashed">
-<<<<<<< HEAD
-
-						<m-alert *ngIf="hasFormErrors" type="warn" [showCloseButton]="true" [duration]="10000"
-							(close)="onAlertClose($event)">
-=======
 						<m-alert *ngIf="hasFormErrors" type="warn" [showCloseButton]="true" [duration]="10000" (close)="onAlertClose($event)">
->>>>>>> 3c86199386297be6e2cf666779b1fc75063de52f
 							Oh snap! Change a few things up and try submitting again.
 						</m-alert>
 						<div class="m-form__section m-form__section--first">
@@ -45,21 +39,13 @@
 								<div class="row">
 									<div class="col-md-4 m--margin-bottom-10-mobile">
 										<mat-form-field class="mat-form-field-fluid">
-<<<<<<< HEAD
-											<input matInput placeholder="商品名称" formControlName="name">
-=======
 											<input matInput placeholder="输入品名" formControlName="model">
->>>>>>> 3c86199386297be6e2cf666779b1fc75063de52f
 											<mat-error>
 												必须输入商品名称
 												<strong>商品名称</strong>
 											</mat-error>
-<<<<<<< HEAD
-											<mat-hint align="start">请输入商品名称
-=======
 											<mat-hint align="start">请输入
 												<strong>品名</strong>
->>>>>>> 3c86199386297be6e2cf666779b1fc75063de52f
 											</mat-hint>
 										</mat-form-field>
 									</div>
