@@ -4,10 +4,11 @@ import { ProductRemarkModel } from './product-remark.model';
 
 export class ProductModel extends BaseModel {
 	id: number;
-	categcode: string;
-	barcode: string;
+	code: string;
 	name: string;
 	speci: string;
+	categcode: string;
+	barcode: string;	
 	band: string;
 	origin: string;
 	unit_pack: string;
@@ -15,14 +16,15 @@ export class ProductModel extends BaseModel {
 	unitrate: number;
 	isenable: number;
 
-	_specs: ProductSpecificationModel[];
-	_remarks: ProductRemarkModel[];
+	// _specs: ProductSpecificationModel[];
+	// _remarks: ProductRemarkModel[];
 
 	clear() {
-		this.categcode = '';
-		this.barcode = '';
+		this.code = '';
 		this.name = '';
 		this.speci = '';
+		this.categcode = '';
+		this.barcode = '';		
 		this.origin = '';
 		this.unit_pack = '';
 		this.unit_stand = '';

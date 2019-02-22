@@ -11,19 +11,26 @@ export class ProductsDataSource extends BaseDataSource {
 	}
 
 	loadProducts(queryParams: QueryParamsModel) {
-		this.productsService.lastFilter$.next(queryParams);
-        this.loadingSubject.next(true);
+		// console.log(queryParams);
+		// this.productsService.lastFilter$.next(queryParams);
+		// this.loadingSubject.next(true);
 
-		this.productsService.findProducts(queryParams)
-			.pipe(
-				tap(res => {
-					this.entitySubject.next(res.items);
-					this.paginatorTotalSubject.next(res.totalCount);
-				}),
-				catchError(err => of(new QueryResultsModel([], err))),
-				finalize(() => this.loadingSubject.next(false))
-			).subscribe((data)=>{
-				alert(data);}
-			);
+		// this.productsService.findProducts(queryParams)
+		// 	.pipe(
+		// 		tap(res => {
+		// 			console.log(res);
+		// 			this.entitySubject.next(res.items);
+		// 			this.paginatorTotalSubject.next(res.totalCount);
+		// 		}),
+		// 		catchError(err => of(new QueryResultsModel([], err))),
+		// 		finalize(() => this.loadingSubject.next(false))
+		// 	).subscribe((data)=>{
+		// 		console.log(data);}
+		// 	);
+
+		console.log('getAllProducts......');
+		this.productsService.getAllProducts().subscribe((data) => {
+			console.log(data);
+		});
 	}
 }

@@ -19,25 +19,25 @@ export class ProductsService {
 	// CREATE =>  POST: add a new product to the server
 	createProduct(product): any {
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
+		// this.http.get(API_PRODUCTS_URL).subscribe(
+		// 	res => {
+		// 		alert(res['data']);
+		// 		console.log(res);
+		// 	},
+		// 	err => {
+		// 		alert("error!");
+		// 		console.log(err);
+		// 	});
 
-		this.http.get(API_PRODUCTS_URL).subscribe(
-			res => {
-				alert(res['data']);
-				console.log(res);
-			},
-			err => {
-				alert("error!");
-				console.log(err);
-			});
-
-		console.log("------------------------------------------");
-		// return this.http.post<ProductModel>(API_PRODUCTS_URL, product, { headers: httpHeaders });
+		// console.log("------------------------------------------");
+		return this.http.post<ProductModel>(API_PRODUCTS_URL, product, { headers: httpHeaders });
 		// return product;
 	}
 
 	// READ
 	getAllProducts(): Observable<ProductModel[]> {
-		return this.http.get<ProductModel[]>(API_PRODUCTS_URL);
+		return this.http.get<ProductModel[]>('http://119.28.180.72:3000/product/list');
+		// return this.http.get<ProductModel[]>(API_PRODUCTS_URL);
 	}
 
 	getProductById(productId: number): Observable<ProductModel> {

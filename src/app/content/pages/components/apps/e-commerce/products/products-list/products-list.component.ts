@@ -76,9 +76,9 @@ export class ProductsListComponent implements OnInit {
 			)
 			.subscribe();
 
-		// Set title to page breadCrumbs
+		// 设置页面标题
 		this.subheaderService.setTitle('商品信息');
-		// Init DataSource
+		// 初始化数据源
 		this.dataSource = new ProductsDataSource(this.productsService);
 		let queryParams = new QueryParamsModel({});
 		// Read from URL itemId, for restore previous state
@@ -88,9 +88,14 @@ export class ProductsListComponent implements OnInit {
 				this.restoreState(queryParams, +params.id);
 			}
 			// First load
+			console.log('First load....');
 			this.dataSource.loadProducts(queryParams);
 		});
-		this.dataSource.entitySubject.subscribe(res => this.productsResult = res);
+
+		// this.dataSource.entitySubject.subscribe(res => {
+		// 	console.log(res);
+		// 	this.productsResult = res;
+		// });
 	}
 
 	loadProductsList() {
@@ -102,7 +107,6 @@ export class ProductsListComponent implements OnInit {
 			this.paginator.pageIndex,
 			this.paginator.pageSize
 		);
-		alert('请求数据');
 		this.dataSource.loadProducts(queryParams);
 	}
 
@@ -252,7 +256,7 @@ export class ProductsListComponent implements OnInit {
 		return numSelected === numRows;
 	}
 
-	 /** Selects all rows if they are not all selected; otherwise clear selection. */
+	/** Selects all rows if they are not all selected; otherwise clear selection. */
 	masterToggle() {
 		if (this.isAllSelected()) {
 			this.selection.clear();

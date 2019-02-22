@@ -7,7 +7,7 @@ import { ProductModel } from '../models/product.model';
 import { QueryParamsModel } from '../models/query-models/query-params.model';
 import { QueryResultsModel } from '../models/query-models/query-results.model';
 
-const API_PRODUCTS_URL = '127.0.0.1:3000/product/edit';
+const API_PRODUCTS_URL = 'http://119.28.180.72:3000/product/list';
 // Real REST API
 @Injectable()
 export class ProductsService {
@@ -25,7 +25,9 @@ export class ProductsService {
 
 	// READ
 	getAllProducts(): Observable<ProductModel[]> {
-		return this.http.get<ProductModel[]>(API_PRODUCTS_URL);
+		// console.log("getAllProducts........");
+		// return this.http.get<ProductModel[]>(API_PRODUCTS_URL);
+		return this.http.get<ProductModel[]>('http://119.28.180.72:3000/product/list');
 	}
 
 	getProductById(productId: number): Observable<ProductModel> {

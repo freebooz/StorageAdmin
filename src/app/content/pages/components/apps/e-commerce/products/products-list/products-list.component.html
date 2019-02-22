@@ -112,17 +112,17 @@
 
 				<ng-container matColumnDef="VINCode">
 					<mat-header-cell *matHeaderCellDef mat-sort-header class="mat-column-vinCode">商品条码</mat-header-cell>
-					<mat-cell *matCellDef="let product" class="mat-column-vinCode">{{product.VINCode}}</mat-cell>
+					<mat-cell *matCellDef="let product" class="mat-column-vinCode">{{product.barcode}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="manufacture">
 					<mat-header-cell *matHeaderCellDef mat-sort-header>商品名称</mat-header-cell>
-					<mat-cell *matCellDef="let product">{{product.manufacture}}</mat-cell>
+					<mat-cell *matCellDef="let product">{{product.name}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="model">
 					<mat-header-cell *matHeaderCellDef mat-sort-header>规格</mat-header-cell>
-					<mat-cell *matCellDef="let product">{{product.model}}</mat-cell>
+					<mat-cell *matCellDef="let product">{{product.speci}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="modelYear">
