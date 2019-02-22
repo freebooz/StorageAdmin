@@ -14,6 +14,7 @@ import { SubheaderService } from '../../../../../../../core/services/layout/subh
 import { ProductModel } from '../../_core/models/product.model';
 import { ProductsDataSource } from '../../_core/models/data-sources/products.datasource';
 import { QueryParamsModel } from '../../_core/models/query-models/query-params.model';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 // Table with EDIT item in new page
 // ARTICLE for table with sort/filter/paginator
@@ -41,7 +42,9 @@ export class ProductsListComponent implements OnInit {
 	selection = new SelectionModel<ProductModel>(true, []);
 	productsResult: ProductModel[] = [];
 
-	constructor(private productsService: ProductsService,
+	constructor(
+		private http: HttpClient,
+		private productsService: ProductsService,
 		public dialog: MatDialog,
 		private route: ActivatedRoute,
 		private subheaderService: SubheaderService,
@@ -49,6 +52,21 @@ export class ProductsListComponent implements OnInit {
 
 	/** LOAD DATA */
 	ngOnInit() {
+		console.log('data');
+		// this.http.get('http://119.28.180.72:3000/product/list').subscribe((data: any) => {
+		// 	this.productsResult = data;
+		// 	console.log('data1111111111');
+		// });
+		const headers = new HttpHeaders().set("Content-Type", "application/json");
+		this.http.get('http://119.28.180.72:3000/product/list',{headers}).subscribe(
+			res => {
+				alert(res['data']);
+				console.log(res);
+			},
+			err => {
+				console.log('err' + err);
+			});
+
 		// If the user changes the sort order, reset back to the first page.
 		this.sort.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
 
