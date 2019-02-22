@@ -83,26 +83,16 @@ export class ProductEditComponent implements OnInit {
 		if (!this.product.id) {
 			this.subheaderService.setBreadcrumbs([
 				{ title: 'eCommerce', page: '/ecommerce' },
-<<<<<<< HEAD
-				{ title: 'Products', page: '/ecommerce/products' },
-				{ title: '新增商品信息', page: '/ecommerce/products/add' }
-=======
 				{ title: '商品列表',  page: '/ecommerce/products' },
 				{ title: '新增商品', page: '/ecommerce/products/add' }
->>>>>>> 3c86199386297be6e2cf666779b1fc75063de52f
 			]);
 			return;
 		}
 		this.subheaderService.setTitle('Edit product');
 		this.subheaderService.setBreadcrumbs([
 			{ title: 'eCommerce', page: '/ecommerce' },
-<<<<<<< HEAD
-			{ title: 'Products', page: '/ecommerce/products' },
-			{ title: 'Edit product', page: '/ecommerce/products/edit', queryParams: { id: this.product.id } }
-=======
 			{ title: '商品列表',  page: '/ecommerce/products' },
 			{ title: '修改商品', page: '/ecommerce/products/edit', queryParams: { id: this.product.id } }
->>>>>>> 3c86199386297be6e2cf666779b1fc75063de52f
 		]);
 	}
 
@@ -279,19 +269,12 @@ export class ProductEditComponent implements OnInit {
 	}
 
 	getComponentTitle() {
-<<<<<<< HEAD
-		let result = '商品信息';
-		// if (!this.product || !this.product.id) {
-		// 	return result;
-		// }
-=======
 		let result = '新增商品';
 		if (!this.product || !this.product.id) {
 			return result;
 		}
->>>>>>> 3c86199386297be6e2cf666779b1fc75063de52f
 
-		result = `编辑商品 - ${this.product.manufacture} ${this.product.model}, ${this.product.modelYear}`;
+		result = `编辑商品 - ${this.product.code} ${this.product.name}, ${this.product.id}`;
 		return result;
 	}
 
