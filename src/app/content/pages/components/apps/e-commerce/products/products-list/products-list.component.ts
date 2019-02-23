@@ -58,7 +58,7 @@ export class ProductsListComponent implements OnInit {
 		// 	console.log('data1111111111');
 		// });
 		const headers = new HttpHeaders().set("Content-Type", "application/json");
-		this.http.get('http://119.28.180.72:3000/product/list',{headers}).subscribe(
+		this.http.get('119.28.180.72:3000/product/list',{headers}).subscribe(
 			res => {
 				alert(res['data']);
 				console.log(res);
@@ -126,6 +126,12 @@ export class ProductsListComponent implements OnInit {
 			this.paginator.pageSize
 		);
 		this.dataSource.loadProducts(queryParams);
+	}
+
+	retrieve(){
+		const headers = new HttpHeaders().set("Content-Type", "application/json");
+		this.http.get('http://119.28.180.72:3000/product/list').subscribe(res=> console.log(res.toString));
+
 	}
 
 	/** FILTRATION */

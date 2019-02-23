@@ -17,13 +17,13 @@ export class InterceptService implements HttpInterceptor {
 		next: HttpHandler
 	): Observable<HttpEvent<any>> {
 		// modify request
-		request = request.clone({
-			setHeaders: {
-				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-			}
-		});
+		// request = request.clone({
+		// 	setHeaders: {
+		// 		Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+		// 	}
+		// });
 		// console.log('----request----');
-		console.log(request);
+		// console.log(request);
 		// console.log('--- end of request---');
 
 		return next.handle(request).pipe(
@@ -39,8 +39,8 @@ export class InterceptService implements HttpInterceptor {
 					// http response status code
 					// console.log('----response----');
 					// console.error('status code:');
-					console.error(error.status);
-					console.error(error.message);
+					// console.error(error.status);
+					// console.error(error.message);
 					// console.log('--- end of response---');
 				}
 			)
