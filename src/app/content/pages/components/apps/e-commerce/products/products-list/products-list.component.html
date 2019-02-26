@@ -1,4 +1,4 @@
-<m-portlet [options]="{headLarge: true}" [loading$]="dataSource.loading$">
+<m-portlet [options]="{headLarge: true}" >
 	<!-- start::Header (attributtes: mPortletHeadTitle|mPortletHeadTools) -->
 	<ng-container mPortletHeadTitle>
 		<div class="m-portlet__head-title">
@@ -187,13 +187,13 @@
 				<mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 			</mat-table>
 
-			<div class="mat-table__message" *ngIf="!dataSource.hasItems">No records found</div>
+			<!-- <div class="mat-table__message" *ngIf="!dataSource.hasItems">No records found</div> -->
 		</div>
 
 		<!-- start: BOTTOM -->
 		<div class="mat-table__bottom">
-			<mat-spinner [diameter]="20" *ngIf="dataSource.loading$ | async"></mat-spinner>
-			<mat-paginator [pageSize]="10" [pageSizeOptions]="[10,25,50,100]" [length]="dataSource.paginatorTotal$ | async" [showFirstLastButtons]="true"></mat-paginator>
+			<!-- <mat-spinner [diameter]="20" *ngIf="dataSource.loading$ | async"></mat-spinner> -->
+			<!-- <mat-paginator [pageSize]="10" [pageSizeOptions]="[10,25,50,100]" [length]="dataSource.paginatorTotal$ | async" [showFirstLastButtons]="true"></mat-paginator> -->
 		</div>
 		<!-- end: BOTTOM -->
 	</ng-container>

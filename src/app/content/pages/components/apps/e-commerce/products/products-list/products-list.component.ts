@@ -14,7 +14,51 @@ import { SubheaderService } from '../../../../../../../core/services/layout/subh
 import { ProductModel } from '../../_core/models/product.model';
 import { ProductsDataSource } from '../../_core/models/data-sources/products.datasource';
 import { QueryParamsModel } from '../../_core/models/query-models/query-params.model';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+
+export function netAsync(opt): Promise<[any, any]> {
+    opt = opt || {};
+    opt.url = opt.url || '';
+    opt.type = opt.type || 'get';
+    opt.data = opt.data || null;
+
+    let { url, type, data } = opt;
+
+    return new Promise<[any, any]>((s, f) => {
+
+        if (!url) {
+            s(['url error', null]);
+            return;
+        }
+        let xmlhttp = new XMLHttpRequest();
+        const logDatas = [];
+        function state_Change() {
+            logDatas.push([xmlhttp.readyState, xmlhttp.status]);
+
+            if (xmlhttp.readyState == 4) {// 4 = "loaded"
+                if (xmlhttp.status == 200) {// 200 = OK
+                    s([null, xmlhttp.response]);
+                } else {
+                    s([`${xmlhttp.status}(${xmlhttp.statusText})`, null]);
+                }
+            }
+        }
+        if (xmlhttp != null) {
+            xmlhttp.onreadystatechange = state_Change;
+            xmlhttp.open(type, url, true);
+            xmlhttp.setRequestHeader('Content-Type', 'application/json');
+            if (data && typeof data == 'object') {
+                data = JSON.stringify(data);
+            }
+            xmlhttp.send(data);
+        }
+        else {
+            s(['no ajax', null]);
+        }
+    });
+}
+
 
 // Table with EDIT item in new page
 // ARTICLE for table with sort/filter/paginator
@@ -51,14 +95,20 @@ export class ProductsListComponent implements OnInit {
 		private layoutUtilsService: LayoutUtilsService) { }
 
 	/** LOAD DATA */
-	ngOnInit() {
-		console.log('data');
-		// this.http.get('http://119.28.180.72:3000/product/list').subscribe((data: any) => {
+	async	ngOnInit() {
+
+		const [err,ret] =await netAsync({
+			url:'http://localhost:3000/product/list'
+		});
+		console.log(err,ret);
+
+		console.log('data'); 
+		// this.http.get('http://localhost:3000/product/list').subscribe((data: any) => {
 		// 	this.productsResult = data;
 		// 	console.log('data1111111111');
 		// });
 		const headers = new HttpHeaders().set("Content-Type", "application/json");
-		this.http.get('119.28.180.72:3000/product/list',{headers}).subscribe(
+		this.http.get('localhost:3000/product/list', { headers }).subscribe(
 			res => {
 				alert(res['data']);
 				console.log(res);
@@ -128,10 +178,19 @@ export class ProductsListComponent implements OnInit {
 		this.dataSource.loadProducts(queryParams);
 	}
 
-	retrieve(){
-		const headers = new HttpHeaders().set("Content-Type", "application/json");
-		this.http.get('http://119.28.180.72:3000/product/list').subscribe(res=> console.log(res.toString));
+	async retrieve() {
+		let list;
+		let headers = new HttpHeaders().set("Content-Type", "application/json");
+		this.http.get('http://localhost:3000/product/list').subscribe(res => {
+			console.log(res);
+		});
 
+		const [err,ret] =await netAsync({
+			url:'http://localhost:3000/product/list'
+		});
+		console.log(err,ret);
+        
+		// console.log(list);
 	}
 
 	/** FILTRATION */

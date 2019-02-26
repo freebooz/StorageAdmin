@@ -128,19 +128,19 @@ const routes: Routes = [
 		MatPaginatorModule,
 		MatSortModule,
 		MatCheckboxModule,
-		MatProgressSpinnerModule,
+		MatProgressSpinnerModule, 
 		MatSnackBarModule,
 		MatTabsModule,
 		MatTooltipModule,
 		environment.isMockEnabled ? HttpClientInMemoryWebApiModule.forFeature(FakeApiService) : []
 	],
 	providers: [
-		InterceptService,
-      	{
-        	provide: HTTP_INTERCEPTORS,
-       	 	useClass: InterceptService,
-        	multi: true
-      	},
+		// InterceptService,
+      	// {
+        // 	provide: HTTP_INTERCEPTORS,
+       	//  	useClass: InterceptService,
+        // 	multi: true
+      	// },
 		{
 			provide: MAT_DIALOG_DEFAULT_OPTIONS,
 			useValue: {
