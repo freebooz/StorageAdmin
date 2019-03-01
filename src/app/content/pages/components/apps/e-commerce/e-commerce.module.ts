@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule,  } from '@angular/common';
+import { CommonModule, } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -116,7 +116,7 @@ const routes: Routes = [
 		MatButtonModule,
 		MatMenuModule,
 		MatSelectModule,
-        MatInputModule,
+		MatInputModule,
 		MatTableModule,
 		MatAutocompleteModule,
 		MatRadioModule,
@@ -128,7 +128,7 @@ const routes: Routes = [
 		MatPaginatorModule,
 		MatSortModule,
 		MatCheckboxModule,
-		MatProgressSpinnerModule, 
+		MatProgressSpinnerModule,
 		MatSnackBarModule,
 		MatTabsModule,
 		MatTooltipModule,
@@ -136,11 +136,11 @@ const routes: Routes = [
 	],
 	providers: [
 		// InterceptService,
-      	// {
-        // 	provide: HTTP_INTERCEPTORS,
-       	//  	useClass: InterceptService,
-        // 	multi: true
-      	// },
+		// {
+		// 	provide: HTTP_INTERCEPTORS,
+		//  	useClass: InterceptService,
+		// 	multi: true
+		// },
 		{
 			provide: MAT_DIALOG_DEFAULT_OPTIONS,
 			useValue: {
