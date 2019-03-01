@@ -75,7 +75,7 @@ export function netAsync(opt): Promise<[any, any]> {
 export class ProductsListComponent implements OnInit {
 	// Table fields
 	dataSource: ProductsDataSource;
-	displayedColumns = ['select', 'VINCode', 'manufacture', 'model', 'modelYear', 'color', 'price', 'condition', 'status', 'actions'];
+	displayedColumns = ['select', 'code', 'name', 'model', 'modelYear', 'color', 'price', 'condition', 'status', 'actions'];
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 	// Filter fields
@@ -95,28 +95,7 @@ export class ProductsListComponent implements OnInit {
 		private layoutUtilsService: LayoutUtilsService) { }
 
 	/** LOAD DATA */
-	async	ngOnInit() {
-
-		const [err,ret] =await netAsync({
-			url:'http://localhost:3000/product/list'
-		});
-		console.log(err,ret);
-
-		console.log('data'); 
-		// this.http.get('http://localhost:3000/product/list').subscribe((data: any) => {
-		// 	this.productsResult = data;
-		// 	console.log('data1111111111');
-		// });
-		const headers = new HttpHeaders().set("Content-Type", "application/json");
-		this.http.get('localhost:3000/product/list', { headers }).subscribe(
-			res => {
-				alert(res['data']);
-				console.log(res);
-			},
-			err => {
-				console.log('err' + err);
-			});
-
+	ngOnInit() {		
 		// If the user changes the sort order, reset back to the first page.
 		this.sort.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
 
@@ -178,19 +157,11 @@ export class ProductsListComponent implements OnInit {
 		this.dataSource.loadProducts(queryParams);
 	}
 
-	async retrieve() {
-		let list;
-		let headers = new HttpHeaders().set("Content-Type", "application/json");
+	retrieve() {
 		this.http.get('http://localhost:3000/product/list').subscribe(res => {
+			this.productsResult = res['data'];
 			console.log(res);
 		});
-
-		const [err,ret] =await netAsync({
-			url:'http://localhost:3000/product/list'
-		});
-		console.log(err,ret);
-        
-		// console.log(list);
 	}
 
 	/** FILTRATION */
